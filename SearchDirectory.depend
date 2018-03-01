@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1519921152 source:c:\users\russell.tengi\desktop\searchdirectory\main.cpp
+	<Windows.h>
+	<iostream>
+	<tchar.h>
+	<stdio.h>
+	<string>
+	<dirent.h>
+
+1519894054 source:c:\users\russell.tengi\desktop\searchdirectory\src\filecounter.cpp
+	"FileCounter.h"
+
+1519894054 c:\users\russell.tengi\desktop\searchdirectory\include\filecounter.h
+	<string>
+	<vector>
+	<algorithm>
+	<iterator>
+	<windows.h>
+
