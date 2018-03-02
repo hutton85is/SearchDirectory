@@ -41,7 +41,7 @@ class FileCounter
             variable directorypath is the path to the folder which files are counted in
             return a count of all files in the folder from variable directorypath
          */
-        int countFilesInFolder(const char *directorypath);
+        void countFilesInFolder(const char *directorypath);
 
         /* find subfolders to search for files in */
         void findSubFolders(const char *directorypath);

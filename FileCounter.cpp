@@ -33,7 +33,7 @@ int FileCounter::CountingFiles(const char *directorypath)
 void FileCounter::findSubFolders(const char *directorypath)
 {
     // Update filecounter with a count of all files within the folder directorypath
-    filecounter += countFilesInFolder(directorypath);
+    countFilesInFolder(directorypath);
 
     DIR *dir = opendir(directorypath);
 
@@ -56,24 +56,20 @@ void FileCounter::findSubFolders(const char *directorypath)
 }
 
 
-int FileCounter::countFilesInFolder(const char *directorypath)
+void FileCounter::countFilesInFolder(const char *directorypath)
 {
     DIR *dir = opendir(directorypath);
     entry = readdir(dir);
-
-    unsigned int counter = 0;
     while (entry != NULL)
     {
         if (entry->d_type == DT_REG)
         {
-            counter++;
+            filecounter++;
         }
         entry = readdir(dir);
     }
 
     closedir(dir);
-
-    return counter;
 }
 
 char *FileCounter::createNewPath(const char *directory)
