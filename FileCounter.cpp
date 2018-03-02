@@ -15,6 +15,7 @@ int FileCounter::CountingFiles(const char *directorypath)
 
     entry = readdir(dir);
 
+    // Test the folder path in variable directorypath. If it does not exist return -1
     if (!entry)
     {
         closedir(dir);
