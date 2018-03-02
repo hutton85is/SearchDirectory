@@ -43,10 +43,10 @@
 	<stdlib.h>
 	<iostream>
 
-1519999397 source:c:\users\russell.tengi\documents\github\searchdirectory\filecounter.cpp
+1520000302 source:c:\users\russell.tengi\documents\github\searchdirectory\filecounter.cpp
 	"FileCounter.h"
 
-1519999690 c:\users\russell.tengi\documents\github\searchdirectory\filecounter.h
+1520000561 c:\users\russell.tengi\documents\github\searchdirectory\filecounter.h
 	<dirent.h>
 	<Windows.h>
 

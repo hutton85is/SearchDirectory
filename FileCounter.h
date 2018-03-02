@@ -47,7 +47,7 @@ class FileCounter
         void findSubFolders(const char *directorypath);
 
         /*
-            Create a new path from the folder path variable directorypath from the private pointer variable entry
+            Create a new path from the folder path variable directorypath, appending the new folder found from the private pointer variable entry
             return new path to search for files and folders
         */
         char *createNewPath(const char *directorypath);

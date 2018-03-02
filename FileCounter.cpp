@@ -32,12 +32,14 @@ int FileCounter::CountingFiles(const char *directorypath)
 
 void FileCounter::findSubFolders(const char *directorypath)
 {
+    // Update filecounter with a count of all files within the folder directorypath
     filecounter += countFilesInFolder(directorypath);
 
     DIR *dir = opendir(directorypath);
 
     entry = readdir(dir);
 
+    // If there is a folder that does not start with the character '.'
     while (entry != NULL)
     {
         if (entry->d_type == DT_DIR)
@@ -57,11 +59,9 @@ void FileCounter::findSubFolders(const char *directorypath)
 int FileCounter::countFilesInFolder(const char *directorypath)
 {
     DIR *dir = opendir(directorypath);
-
     entry = readdir(dir);
 
     unsigned int counter = 0;
-
     while (entry != NULL)
     {
         if (entry->d_type == DT_REG)
@@ -83,10 +83,12 @@ char *FileCounter::createNewPath(const char *directory)
 
     char *newdirectory = (char*) malloc(dirlength1 + dirlength2 + 2);
     memcpy(newdirectory, directory, dirlength1);
+
     for (unsigned int i = 0; i < dirlength2; i++)
     {
         newdirectory[dirlength1 + i] = entry->d_name[i];
     }
+
     newdirectory[dirlength1 + dirlength2] = '/';
     newdirectory[dirlength1 + dirlength2 + 1] = '\0';
 
