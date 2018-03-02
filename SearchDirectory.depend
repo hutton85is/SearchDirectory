@@ -17,7 +17,7 @@
 	<iterator>
 	<windows.h>
 
-1519935392 source:c:\users\johnrussellhutton\documents\github\searchdirectory\main.cpp
+1519945458 source:c:\users\johnrussellhutton\documents\github\searchdirectory\main.cpp
 	<iostream>
 	"FileCounter.h"
 
@@ -31,14 +31,15 @@
 	<iterator>
 	<windows.h>
 
-1519935193 source:c:\users\johnrussellhutton\documents\github\searchdirectory\filecounter.cpp
+1519945730 source:c:\users\johnrussellhutton\documents\github\searchdirectory\filecounter.cpp
 	"FileCounter.h"
 
-1519935295 c:\users\johnrussellhutton\documents\github\searchdirectory\filecounter.h
+1519942853 c:\users\johnrussellhutton\documents\github\searchdirectory\filecounter.h
 	<tchar.h>
 	<stdio.h>
 	<string>
 	<dirent.h>
 	<Windows.h>
+	<stdlib.h>
 	<iostream>
 

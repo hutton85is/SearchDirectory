@@ -34,9 +34,9 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="include/FileCounter.h" />
+		<Unit filename="FileCounter.cpp" />
+		<Unit filename="FileCounter.h" />
 		<Unit filename="main.cpp" />
-		<Unit filename="src/FileCounter.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
