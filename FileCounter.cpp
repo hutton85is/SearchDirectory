@@ -9,11 +9,31 @@ FileCounter::~FileCounter()
 {
 }
 
-void FileCounter::findSubFolders(const char *directory)
+int FileCounter::CountingFiles(const char *directorypath)
 {
-    filecounter += countFiles(directory);
+    DIR *dir = opendir(directorypath);
 
-    DIR *dir = opendir(directory);
+    entry = readdir(dir);
+
+    if (!entry)
+    {
+        closedir(dir);
+
+        return -1;
+    }
+
+    closedir(dir);
+
+    findSubFolders(directorypath);
+
+    return filecounter;
+}
+
+void FileCounter::findSubFolders(const char *directorypath)
+{
+    filecounter += countFilesInFolder(directorypath);
+
+    DIR *dir = opendir(directorypath);
 
     entry = readdir(dir);
 
@@ -23,22 +43,7 @@ void FileCounter::findSubFolders(const char *directory)
         {
             if (entry->d_name[0] != '.')
             {
-                cout << "directory is : " << directory << endl;
-                size_t dirlength1 = strlen(directory);
-                size_t dirlength2 = strlen(entry->d_name);
-                cout << "size of directory is : " << dirlength1 << endl;
-                cout << "new folder found is : " << entry->d_name << endl;
-
-                char *newdirectory = (char*) malloc(dirlength1 + dirlength2 + 2);
-                cout << "size of newdirectory : " << dirlength1 + dirlength2 + 2 << endl;
-
-                memcpy(newdirectory, directory, dirlength1);
-                newdirectory[dirlength1 + dirlength2] = '/';
-                newdirectory[dirlength1 + dirlength2 + 1] = '\0';
-
-                cout << "newdirectory is : " << newdirectory << endl;
-                cout << endl;
-                findSubFolders(newdirectory);
+                findSubFolders(createNewPath(directorypath));
             }
         }
         entry = readdir(dir);
@@ -48,9 +53,9 @@ void FileCounter::findSubFolders(const char *directory)
 }
 
 
-int FileCounter::countFiles(const char *filepath)
+int FileCounter::countFilesInFolder(const char *directorypath)
 {
-    DIR *dir = opendir(filepath);
+    DIR *dir = opendir(directorypath);
 
     entry = readdir(dir);
 
@@ -70,9 +75,19 @@ int FileCounter::countFiles(const char *filepath)
     return counter;
 }
 
-int FileCounter::CountingFiles(const char *directorypath)
+char *FileCounter::createNewPath(const char *directory)
 {
-    findSubFolders(directorypath);
+    size_t dirlength1 = strlen(directory);
+    size_t dirlength2 = strlen(entry->d_name);
 
-    return filecounter;
+    char *newdirectory = (char*) malloc(dirlength1 + dirlength2 + 2);
+    memcpy(newdirectory, directory, dirlength1);
+    for (unsigned int i = 0; i < dirlength2; i++)
+    {
+        newdirectory[dirlength1 + i] = entry->d_name[i];
+    }
+    newdirectory[dirlength1 + dirlength2] = '/';
+    newdirectory[dirlength1 + dirlength2 + 1] = '\0';
+
+    return newdirectory;
 }

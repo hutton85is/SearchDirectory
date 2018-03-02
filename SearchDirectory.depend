@@ -43,3 +43,14 @@
 	<stdlib.h>
 	<iostream>
 
+1519994640 source:c:\users\russell.tengi\documents\github\searchdirectory\filecounter.cpp
+	"FileCounter.h"
+
+1519994578 c:\users\russell.tengi\documents\github\searchdirectory\filecounter.h
+	<dirent.h>
+	<Windows.h>
+
+1519994525 source:c:\users\russell.tengi\documents\github\searchdirectory\main.cpp
+	<iostream>
+	"FileCounter.h"
+

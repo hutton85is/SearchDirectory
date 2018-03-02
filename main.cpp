@@ -6,7 +6,8 @@ using namespace std;
 int main()
 {
     FileCounter F;
-    string path = "C:/Users/JohnRussellHutton/Documents/GitHub/SearchDirectory/";
+    //string path = "C:/Users/russell.TENGI/Documents/GitHub/SearchDirectory/obj/Debug/";
+    string path = "C:/Users/russell.TENGI/Documents/HTML/";
     int counter = F.CountingFiles(path.c_str());
     cout << "Files " << counter << endl;
 
