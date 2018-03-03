@@ -11,7 +11,8 @@
 #define FILECOUNTER_H
 
 #include <dirent.h>
-#include <Windows.h>
+#include <stdlib.h>
+#include <string.h>
 
 class FileCounter
 {

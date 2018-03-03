@@ -54,3 +54,15 @@
 	<iostream>
 	"FileCounter.h"
 
+1520085816 source:/home/russell/CPPPrograms/SearchDirectory/FileCounter.cpp
+	"FileCounter.h"
+
+1520085866 /home/russell/CPPPrograms/SearchDirectory/FileCounter.h
+	<dirent.h>
+	<stdlib.h>
+	<string.h>
+
+1520085705 source:/home/russell/CPPPrograms/SearchDirectory/main.cpp
+	<iostream>
+	"FileCounter.h"
+

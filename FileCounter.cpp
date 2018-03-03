@@ -11,21 +11,27 @@ FileCounter::~FileCounter()
 
 int FileCounter::CountingFiles(const char *directorypath)
 {
-    DIR *dir = opendir(directorypath);
-
-    entry = readdir(dir);
-
-    // Test the folder path in variable directorypath. If it does not exist return -1
-    if (!entry)
+    try
     {
+        DIR *dir = opendir(directorypath);
+
+        // Test the folder path in variable directorypath. If it does not exist return -1
+        if (!dir)
+        {
+            closedir(dir);
+            throw -1;
+        }
+
+        entry = readdir(dir);
+
         closedir(dir);
 
-        return -1;
+        findSubFolders(directorypath);
     }
-
-    closedir(dir);
-
-    findSubFolders(directorypath);
+    catch(int err)
+    {
+        filecounter = err;
+    }
 
     return filecounter;
 }
